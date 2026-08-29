@@ -1,178 +1,124 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8"><meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRIDAY AI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #090c10;
+      color: #00f2fe;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding: 16px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #00f2fe;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    }
+    .status {
+      font-size: 0.85rem;
+      color: #4facfe;
+      margin-top: 4px;
+    }
+    .chat-box {
+      flex: 1;
+      overflow-y: auto;
+      background: rgba(16, 26, 43, 0.6);
+      border: 1px solid #00f2fe33;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .message {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .bot-title {
+      font-weight: bold;
+      color: #ffffff;
+    }
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .btn-action {
+      background: #16213e;
+      color: #00f2fe;
+      border: 1px solid #00f2fe66;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .input-bar {
+      display: flex;
+      gap: 6px;
+    }
+    input[type="text"] {
+      flex: 1;
+      background: #0f172a;
+      border: 1px solid #00f2fe66;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      outline: none;
+    }
+    .btn-submit {
+      background: #00f2fe;
+      color: #090c10;
+      border: none;
+      padding: 10px 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-<meta name="theme-color" content="#050b14">
+  <div class="header">
+    <h1>F.R.I.D.A.Y</h1>
+    <div class="status">PERSONAL AI ASSISTANT • SYSTEM ONLINE</div>
+  </div>
 
-<title>FRIDAY AI</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head><body><!-- ============================= -->
-<!-- HEADER -->
-<!-- ============================= -->
-
-<header class="header">
-
-    <div class="logo">
-        F.R.I.D.A.Y
+  <div class="chat-box" id="chat">
+    <div class="message">
+      <span class="bot-title">FRIDAY:</span> Hello, Boss.<br>
+      All systems are online. How may I assist you?
     </div>
+  </div>
 
-    <div class="subtitle">
-        PERSONAL AI ASSISTANT
-    </div>
+  <div class="quick-actions">
+    <button class="btn-action">TIME</button>
+    <button class="btn-action">DATE</button>
+    <button class="btn-action">STATUS</button>
+    <button class="btn-action">JOKE</button>
+    <button class="btn-action">YOUTUBE</button>
+    <button class="btn-action">GOOGLE</button>
+  </div>
 
-    <div class="status">
-        ● SYSTEM ONLINE
-    </div>
+  <div class="input-bar">
+    <input type="text" placeholder="Talk to FRIDAY...">
+    <button class="btn-submit">🎤</button>
+    <button class="btn-submit">SEND</button>
+  </div>
 
-</header>
-
-
-<!-- ============================= -->
-<!-- AI CORE -->
-<!-- ============================= -->
-
-<main>
-
-    <section class="core-container">
-
-        <div class="core">
-
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
-
-            <div class="core-light">
-                FRIDAY
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- CHAT -->
-    <!-- ============================= -->
-
-    <section class="chat-container">
-
-        <div id="chat" class="chat">
-
-            <div class="message friday">
-
-                <b>FRIDAY:</b>
-                <br>
-
-                Hello, Boss.
-                <br><br>
-
-                All systems are online.
-                How may I assist you?
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- QUICK COMMANDS -->
-    <!-- ============================= -->
-
-    <section class="quick-commands">
-
-        <button onclick="quickCommand('What time is it?')">
-            TIME
-        </button>
-
-        <button onclick="quickCommand('What is today\\'s date?')">
-            DATE
-        </button>
-
-        <button onclick="quickCommand('System status')">
-            STATUS
-        </button>
-
-        <button onclick="quickCommand('Tell me a joke')">
-            JOKE
-        </button>
-
-        <button onclick="quickCommand('Open YouTube')">
-            YOUTUBE
-        </button>
-
-        <button onclick="quickCommand('Open Google')">
-            GOOGLE
-        </button>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- INPUT -->
-    <!-- ============================= -->
-
-    <section class="input-area">
-
-        <input
-            id="userInput"
-            type="text"
-            placeholder="Talk to FRIDAY..."
-            autocomplete="off"
-            autocorrect="on"
-            spellcheck="true"
-        >
-
-        <button
-            id="voiceButton"
-            onclick="startVoice()"
-            aria-label="Voice command"
-        >
-            🎤
-        </button>
-
-        <button
-            id="sendButton"
-            onclick="sendMessage()"
-        >
-            SEND
-        </button>
-
-    </section>
-
-</main>
-
-
-<!-- ============================= -->
-<!-- JAVASCRIPT -->
-<!-- ============================= -->
-
-<!-- Brain must load FIRST -->
-<script src="brain.js"></script>
-
-<!-- Main application -->
-<script src="script.js"></script>
-
-
-<!-- ENTER KEY SUPPORT -->
-<script>
-
-    document
-        .getElementById("userInput")
-        .addEventListener("keydown", function(event) {
-
-            if (event.key === "Enter") {
-                event.preventDefault();
-                sendMessage();
-            }
-
-        });
-
-</script>
-
-</body></html>
+</body>
+</html>
