@@ -1,4 +1,178 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"><meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
+
+<meta name="theme-color" content="#050b14">
+
+<title>FRIDAY AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><!-- ============================= -->
+<!-- HEADER -->
+<!-- ============================= -->
+
+<header class="header">
+
+    <div class="logo">
+        F.R.I.D.A.Y
+    </div>
+
+    <div class="subtitle">
+        PERSONAL AI ASSISTANT
+    </div>
+
+    <div class="status">
+        ● SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<!-- ============================= -->
+<!-- AI CORE -->
+<!-- ============================= -->
+
+<main>
+
+    <section class="core-container">
+
+        <div class="core">
+
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+
+            <div class="core-light">
+                FRIDAY
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CHAT -->
+    <!-- ============================= -->
+
+    <section class="chat-container">
+
+        <div id="chat" class="chat">
+
+            <div class="message friday">
+
+                <b>FRIDAY:</b>
+                <br>
+
+                Hello, Boss.
+                <br><br>
+
+                All systems are online.
+                How may I assist you?
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- QUICK COMMANDS -->
+    <!-- ============================= -->
+
+    <section class="quick-commands">
+
+        <button onclick="quickCommand('What time is it?')">
+            TIME
+        </button>
+
+        <button onclick="quickCommand('What is today\\'s date?')">
+            DATE
+        </button>
+
+        <button onclick="quickCommand('System status')">
+            STATUS
+        </button>
+
+        <button onclick="quickCommand('Tell me a joke')">
+            JOKE
+        </button>
+
+        <button onclick="quickCommand('Open YouTube')">
+            YOUTUBE
+        </button>
+
+        <button onclick="quickCommand('Open Google')">
+            GOOGLE
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- INPUT -->
+    <!-- ============================= -->
+
+    <section class="input-area">
+
+        <input
+            id="userInput"
+            type="text"
+            placeholder="Talk to FRIDAY..."
+            autocomplete="off"
+            autocorrect="on"
+            spellcheck="true"
+        >
+
+        <button
+            id="voiceButton"
+            onclick="startVoice()"
+            aria-label="Voice command"
+        >
+            🎤
+        </button>
+
+        <button
+            id="sendButton"
+            onclick="sendMessage()"
+        >
+            SEND
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- ============================= -->
+<!-- JAVASCRIPT -->
+<!-- ============================= -->
+
+<!-- Brain must load FIRST -->
 <script src="brain.js"></script>
+
+<!-- Main application -->
 <script src="script.js"></script>
-</body>
-</html>
+
+
+<!-- ENTER KEY SUPPORT -->
+<script>
+
+    document
+        .getElementById("userInput")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+
+        });
+
+</script>
+
+</body></html>
